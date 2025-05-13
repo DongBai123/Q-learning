@@ -98,9 +98,9 @@ def eval(cfg, env, agent):
 if __name__ == "__main__":
     cfg = QlearningConfig()  # 获得实验参数
     # 训练智能体
-    env = gym.make(cfg.env)  # 获取环境
-    env = CliffWalkingWapper(env)  # 包装环境
-    env.reset(seed=cfg.seed)  # 设置随机种子
+    env = gym.make(cfg.env)
+    env = CliffWalkingWapper(env)
+    env.seed(cfg.seed)
     state_dim = env.observation_space.n
     action_dim = env.action_space.n
     agent = QLearning(state_dim, action_dim, cfg)
